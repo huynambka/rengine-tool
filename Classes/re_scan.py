@@ -279,7 +279,7 @@ class REScan():
 
         #Start scan on target
         csrf_token = s.cookies['csrftoken']
-        data = '?csrfmiddlewaretoken=' + csrf_token + '&scan_mode=' + args.ei + '&importSubdomainTextArea=&outOfScopeSubdomainTextarea=&filterPath='
+        data = '?csrfmiddlewaretoken=' + csrf_token + '&scan_mode=' + args.ei + '&importSubdomainTextArea=&outOfScopeSubdomainTextarea=&startingPointPath=&excludedPaths=/static/.*,/assets/.*,/css/.*,/js/.*,/images/.*,/img/.*,/fonts/.*,.*\\.ico'
         headers = {'Referer': startScanUrl,'Content-type': 'application/x-www-form-urlencoded', 'X-CSRFToken': csrf_token}
         r = s.post(startScanUrl, data=data, headers=headers, verify=False)
 
